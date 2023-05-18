@@ -22,12 +22,15 @@
       <button id="popup" class="btn btn-primary">Select</button>
     </div>
 
+    <p id="message"></p>
     <div class="board"></div>
 
     <div class="footer">
-      <button class="btn btn-dark">Black</button>
-      <button class="btn btn-warning">RGB Mode</button>
-      <button class="btn btn-danger">Clear</button>
+      <button class="btn btn-dark" onclick="setColor('black')">Black</button>
+      <button class="btn btn-warning" onclick="setColor('random')">
+        RGB Mode
+      </button>
+      <button class="btn btn-danger" onclick="resetBoard()">Clear</button>
     </div>
 
     <!-- My Javascript -->

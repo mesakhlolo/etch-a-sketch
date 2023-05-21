@@ -25,6 +25,7 @@ body {
 
 /* header style */
 .header .title {
+  font-weight: 700;
   font-size: 4rem;
   margin: 1rem 0;
 }
@@ -47,11 +48,22 @@ body {
 }
 
 .main .settings button {
-  width: 100%;
+  /* width: 100%; */
+  width: 150px;
   padding: 10px 20px;
   border: 1px solid black;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   font-size: 15px;
+  transition: transform 0.1s ease-in-out;
+}
+
+.main .settings button:hover {
+  transform: scale(1.1);
+}
+
+.main .settings button.active {
+  background-color: black;
+  color: #fff;
 }
 
 .main .settings .slider p {
@@ -63,7 +75,7 @@ body {
   height: 50px;
 }
 
-.main .board {
+#board {
   display: grid;
   width: 500px;
   height: 500px;

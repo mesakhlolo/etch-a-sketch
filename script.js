@@ -1,11 +1,13 @@
 const colorBtn = document.getElementById("colorBtn");
 const rgbBtn = document.getElementById("rgbBtn");
+const eraserBtn = document.getElementById("eraserBtn");
 const clearBtn = document.getElementById("clearBtn");
 let color = "black";
 
 document.addEventListener("DOMContentLoaded", function () {
   colorBtn.addEventListener("click", () => setColor("color"));
   rgbBtn.addEventListener("click", () => setColor("rgb"));
+  eraserBtn.addEventListener("click", () => setColor("eraser"));
   clearBtn.addEventListener("click", clearBoard);
 
   createBoard(16);
@@ -41,6 +43,8 @@ function createBoard(size) {
 function colorDiv() {
   if (color === "rgb") {
     this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+  } else if (color === "eraser") {
+    this.style.backgroundColor = "";
   } else {
     this.style.backgroundColor = "black";
   }
@@ -52,12 +56,15 @@ function setColor(colorChoice) {
   // Remove the selected class from both buttons
   colorBtn.classList.remove("button-selected");
   rgbBtn.classList.remove("button-selected");
+  eraserBtn.classList.remove("button-selected");
 
   // Add the selected class to the active button
   if (colorChoice === "color") {
     colorBtn.classList.add("button-selected");
   } else if (colorChoice === "rgb") {
     rgbBtn.classList.add("button-selected");
+  } else if (colorChoice === "eraser") {
+    eraserBtn.classList.add("button-selected");
   }
 }
 

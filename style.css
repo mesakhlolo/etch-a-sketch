@@ -61,7 +61,7 @@ body {
   transform: scale(1.1);
 }
 
-.main .settings button.active {
+.main .settings button.button-selected {
   background-color: black;
   color: #fff;
 }

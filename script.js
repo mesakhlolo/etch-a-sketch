@@ -2,9 +2,11 @@ const colorBtn = document.getElementById("colorBtn");
 const rgbBtn = document.getElementById("rgbBtn");
 const eraserBtn = document.getElementById("eraserBtn");
 const clearBtn = document.getElementById("clearBtn");
-let color = "black";
+const colorPicker = document.getElementById("colorPicker");
+let color = colorPicker.value;
 
 document.addEventListener("DOMContentLoaded", function () {
+  colorPicker.addEventListener("change", () => setColor("color"));
   colorBtn.addEventListener("click", () => setColor("color"));
   rgbBtn.addEventListener("click", () => setColor("rgb"));
   eraserBtn.addEventListener("click", () => setColor("eraser"));
@@ -46,14 +48,19 @@ function colorDiv() {
   } else if (color === "eraser") {
     this.style.backgroundColor = "";
   } else {
-    this.style.backgroundColor = "black";
+    this.style.backgroundColor = colorPicker.value;
   }
 }
 
 function setColor(colorChoice) {
-  color = colorChoice;
+  // color = colorChoice;
+  if (colorChoice === "color") {
+    color = colorPicker.value;
+  } else {
+    color = colorChoice;
+  }
 
-  // Remove the selected class from both buttons
+  // Remove the selected class from all buttons
   colorBtn.classList.remove("button-selected");
   rgbBtn.classList.remove("button-selected");
   eraserBtn.classList.remove("button-selected");
